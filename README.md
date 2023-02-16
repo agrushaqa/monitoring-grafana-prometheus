@@ -77,6 +77,17 @@ chmod 777 -R prometheus
 # Запуск тестов
 python -m pytest --rootdir=. tests --alluredir=report/
 
+# пересобрать образ
+docker-compose build
+
+# Удалить старые не используемые образы
+docker rmi $(docker images --filter "dangling=true" -q --no-trunc)
+dangling=true - фильтрует не используемые образы
+
+# Замечания
+в docker кладу всё папку, а не только 
+context: ./app
+для того, чтобы import работали и напрямую и из docker
 
 # requirements.txt
 ## create
@@ -97,11 +108,7 @@ mypy .
 python -m pip install flake8
 ### run
 flake8 --exclude venv,docs --ignore=F401
-## code coverage
-pip install coverage
-### run
-coverage run C:\Users\agrusha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\behave\__main__.py
-в файле .coveragerc нужно указать исходники
+
 
 # Pytest - Run Tests in Parallel
 ## install
@@ -113,9 +120,3 @@ https://pypi.org/project/pytest-parallel/
 ```pytest -n 2 test_common.py```
 
 
-# Замечания
-при асинхронной загрузке я получаю ошибку
- Sorry, we're not able to serve your requests this quickly. 
-
-## Cкачивание страницы curl
-curl.exe --insecure https://news.ycombinator.com/item?id=34722118

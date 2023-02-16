@@ -2,6 +2,7 @@ from flask import Flask
 from app.netinfo import NetInfo
 from prometheus_flask_exporter import PrometheusMetrics
 from app.memory_info import MemoryInfo
+# this file is called by docker
 
 app = Flask(__name__)
 

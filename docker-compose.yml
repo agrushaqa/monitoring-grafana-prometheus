@@ -25,11 +25,11 @@ services:
       - '3000:3000'
   app:
     build:
-      context: ./app
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: ./app/Dockerfile
     ports:
       - '5000:5000'
-    command: 'python api.py'
+    command: 'python ./app/api.py'
 
 
 volumes:
