@@ -1,13 +1,13 @@
-# Телеграм-бот.
+# Система мониторинга
 система мониторинга ПК в корпоративной сети
 
-Цель:
+# Цель:
 
     закрепить знания и навыки, полученные в течение курса;
     реализовать собственный проект;
     пополнить своё портфолио качественным проектом.
 
-Критерии:
+# Критерии:
     структура (примеры можно нагуглить, посмотреть ссылку в 1 ДЗ или посмотреть на крупные проекты а-ля fastapi, aiohttp и т.п.)
     тесты
     CI с запуском тестов, black, isort, mypy, flake8 и прочего
@@ -16,10 +16,52 @@
     Краткое описание в README.md
     если там ООП, то есть попытка соблюдать SOLID
 
-Ссылки:
+# Ссылки:
 
     https://www.marwandebbiche.com/posts/python-package-tooling/
     https://mitelman.engineering/blog/python-best-practice/automating-python-best-practices-for-a-new-project/
+
+# Описание:
+Цель этого приложения - исследование способов мониторинга приложения
+на примере таких характеристик как
+- скорость сети
+- приложения использующие сеть
+- потребляемая память
+- свободное место на диске
+
+в рамках этой задачи я исследовал
+- grafana
+- prometheus
+- flask
+- zabbix
+
+я планировал добавить телеграмм бот для оповещений, но как оказалось
+grafana уже позволяет отправлять оповещения в telegram
+
+# Запуск:
+docker-compose up -d
+
+grafana:
+http://localhost:3000
+- креды admin\grushagraphana (пароль можно изменить в docker-compose.yml)
+prometheus:
+http://localhost:9090
+http://127.0.0.1:5000/metrics
+flask
+- http://localhost:5000/cpu
+- http://localhost:5000/ram
+- http://localhost:5000/computer_name
+- http://localhost:5000/app_on_net
+  (в prometheus http://127.0.0.1:5000/metrics пока попадает только ram)
+
+# Настройка
+
+если в virtualbox то рекомендуется скопировать исходники в обычную папку
+cp -r copy_telegram_bot /home/artem/2023
+и дать ей права для запуска prometheus
+chgrp -R nogroup ./prometheus
+chmod 777 -R prometheus
+
 
 # requirements.txt
 ## create
