@@ -1,0 +1,1 @@
+{"19907094a3861eb5e35ffc379e278b20":{"statistic":{"failed":0,"broken":0,"skipped":0,"passed":1,"unknown":0,"total":1},"items":[{"uid":"6fa0adbfd43bb0ac","reportUrl":"https://agrushaqa.github.io/monitoring-grafana-prometheus/1//#testresult/6fa0adbfd43bb0ac","status":"passed","time":{"start":1676564443307,"stop":1676564443307,"duration":0}}]}}
