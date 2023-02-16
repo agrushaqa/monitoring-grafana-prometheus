@@ -1,8 +1,7 @@
-import collect_info
-import memory_info
 from flask import Flask
-from netinfo import NetInfo
+from app.netinfo import NetInfo
 from prometheus_flask_exporter import PrometheusMetrics
+from app.memory_info import MemoryInfo
 
 app = Flask(__name__)
 
@@ -14,17 +13,17 @@ metrics.info('app_info', 'Application info', version='1.0.3')
 
 @app.route("/computer_name")
 def computer_name():
-    return memory_info.MemoryInfo.get_computer_name()
+    return MemoryInfo.get_computer_name()
 
 
 @app.route("/cpu")
 def cpu():
-    return str(memory_info.MemoryInfo.get_cpu_percent())
+    return str(MemoryInfo.get_cpu_percent())
 
 
 @app.route("/ram")
 def ram():
-    return str(memory_info.MemoryInfo.get_ram_percent())
+    return str(MemoryInfo.get_ram_percent())
 
 
 @app.route("/app_on_net")

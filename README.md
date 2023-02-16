@@ -39,7 +39,19 @@
 grafana уже позволяет отправлять оповещения в telegram
 
 # Запуск:
+## docker
 docker-compose up -d
+## CLI
+cd app
+python collect_info.py
+## api
+cd app
+python api.py
+В этом случае инфомация будет выводится по адресам
+- http://localhost:5000/cpu
+- http://localhost:5000/ram
+- http://localhost:5000/computer_name
+- http://localhost:5000/app_on_net
 
 grafana:
 http://localhost:3000
@@ -61,6 +73,9 @@ cp -r copy_telegram_bot /home/artem/2023
 и дать ей права для запуска prometheus
 chgrp -R nogroup ./prometheus
 chmod 777 -R prometheus
+
+# Запуск тестов
+python -m pytest --rootdir=. tests --alluredir=report/
 
 
 # requirements.txt

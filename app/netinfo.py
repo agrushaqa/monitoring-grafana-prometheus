@@ -1,8 +1,6 @@
-from abc import abstractmethod, abstractstaticmethod
-
 import psutil
 import speedtest
-from app_usage_net import AppUsageNet
+from app.app_usage_net import AppUsageNet
 
 
 class NetInfo:

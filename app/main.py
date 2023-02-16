@@ -1,8 +1,8 @@
 import platform
 
-from memory_info_windows import MemoryInfoWindows
+from app.memory_info import MemoryInfo
 
 print(platform.system())
 
-for i_partion in MemoryInfoWindows.get_list_partions():
-    print(MemoryInfoWindows.get_free_space(i_partion) / 1024 / 1024)
+for i_partion in MemoryInfo.get_list_partions():
+    print(MemoryInfo.get_free_space(i_partion) / 1024 / 1024)
