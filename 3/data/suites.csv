@@ -1,3 +1,0 @@
-"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Thu Feb 16 16:50:35 GMT 2023","Thu Feb 16 16:50:35 GMT 2023","0","tests","test_memory_info","TestMemoryInfo","","","test_computer_name",""
-"passed","Thu Feb 16 16:50:35 GMT 2023","Thu Feb 16 16:50:35 GMT 2023","5","tests","test_flask","TestFlask","","","test_api_computer_name",""
